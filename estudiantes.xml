@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<alumnos>
+	<alumno id="123">
+		<nombre>Jose Perez</nombre>
+		<curso>PHP</curso>
+		<horario>19 a 22</horario>
+		<modalidad>Distancia</modalidad>
+	</alumno>
+	<alumno id="456">
+		<nombre>Maria Gonzalez</nombre>
+		<curso>Java</curso>
+		<horario>10 a 13</horario>
+		<modalidad>Presencial</modalidad>
+	</alumno>
+	<alumno id="789">
+		<nombre>Carla Perez</nombre>
+		<curso>Python</curso>
+		<horario>16 a 19</horario>
+		<modalidad>Presencial</modalidad>
+	</alumno>
+</alumnos>

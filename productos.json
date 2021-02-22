@@ -1,0 +1,24 @@
+ [{
+	"nombre" : "Cafe",
+	"marca" : "Cabrales",
+	"precio" : 15.60,
+	"stock" : 300,
+	"presentacion" : {
+		"chica" : "125grs",
+		"mediana" : "250grs",
+		"grande" : "500grs",
+		"max" : "1kg"
+	}
+},
+{
+	"nombre" : "Cafe",
+	"marca" : "Morenita",
+	"precio" : 12.50,
+	"stock" : 300,
+	"presentacion" : {
+		"chica" : "125grs",
+		"mediana" : "250grs",
+		"grande" : "500grs",
+		"max" : "1kg"
+	}
+}]
