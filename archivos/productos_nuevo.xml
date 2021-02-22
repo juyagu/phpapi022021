@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<productos>
+	<producto id="123">
+		<nombre>Cafe</nombre>
+		<marca>Cabrales</marca>
+		<precio>15.6</precio>
+		<stock>300</stock>
+		<presentacion>
+			<chica>125grs</chica>
+			<mediana>250grs</mediana>
+			<grande>500grs</grande>
+			<max>1kg</max>
+		</presentacion>
+	</producto>
+	<producto id="456">
+		<nombre>Cafe</nombre>
+		<marca>Morenita</marca>
+		<precio>12.5</precio>
+		<stock>300</stock>
+		<presentacion>
+			<chica>125grs</chica>
+			<mediana>250grs</mediana>
+			<grande>500grs</grande>
+			<max>1kg</max>
+		</presentacion>
+	</producto>
+	<producto id="789">
+		<nombre>Mermelada</nombre>
+		<marca>BC</marca>
+		<precio>200</precio>
+		<stock>100</stock>
+	</producto>
+<producto id="789"><nombre>Mermelada</nombre><marca>BC</marca><precio>200</precio><stock>100</stock></producto></productos>

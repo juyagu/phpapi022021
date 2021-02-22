@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <productos>
-	<producto>
+	<producto id="123">
 		<nombre>Cafe</nombre>
 		<marca>Cabrales</marca>
 		<precio>15.6</precio>
@@ -12,7 +12,7 @@
 			<max>1kg</max>
 		</presentacion>
 	</producto>
-	<producto>
+	<producto id="456">
 		<nombre>Cafe</nombre>
 		<marca>Morenita</marca>
 		<precio>12.5</precio>
@@ -23,5 +23,11 @@
 			<grande>500grs</grande>
 			<max>1kg</max>
 		</presentacion>
+	</producto>
+	<producto id="789">
+		<nombre>Mermelada</nombre>
+		<marca>BC</marca>
+		<precio>200</precio>
+		<stock>100</stock>
 	</producto>
 </productos>
