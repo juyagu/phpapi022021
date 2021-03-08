@@ -1,3 +1,24 @@
 <?xml version="1.0" enconding="UTF-8"?>
 
 <definitions name="Service" targetNamespace="urn:Service" xmlns:typens="urn:Service" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+
+    <message name="saludo" />
+    <message name="saludoResponse">
+        <part name="saludoReturn" type="xsd:string" />
+    </message>
+
+    <portType name="CursoPHPPortType">
+        <operation name="saludo">
+            <input message="typens:saludo" />
+            <output message="typens:saludoResponse" />
+        </operation>
+    </portType>
+
+    <binding name="CursoPHPBinding" type="typens:CursoPHPPortType">
+        <soap:operation soapAction="urn:saludoAction" />
+        <input>
+            <soap:body namespace="urn:Service" use="encoding" encondingType="http://schemas.xmlsoap.org/soap/encoding/" />
+        </input>
+    </binding>
+
+</definitions>
