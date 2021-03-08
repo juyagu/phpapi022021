@@ -1,4 +1,4 @@
-<?xml version="1.0" enconding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <definitions name="Service" targetNamespace="urn:Service" xmlns:typens="urn:Service" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns="http://schemas.xmlsoap.org/wsdl/">
 
@@ -19,10 +19,10 @@
         <operation name="saludo">
             <soap:operation soapAction="urn:saludoAction" />
             <input>
-                <soap:body namespace="urn:Service" use="encoding" encondingType="http://schemas.xmlsoap.org/soap/encoding/" />
+                <soap:body namespace="urn:Service" use="encoding" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
             </input>
             <output>
-                <soap:body namespace="urn:Service" use="encoding" encondingType="http://schemas.xmlsoap.org/soap/encoding/" />
+                <soap:body namespace="urn:Service" use="encoding" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
             </output>
         </operation>
     </binding>
