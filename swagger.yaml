@@ -1,0 +1,223 @@
+---
+swagger: "2.0"
+info:
+  description: API Peliculas
+  version: 1.0.0
+  title: API Peliculas
+  contact:
+    email: you@your-company.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: virtserver.swaggerhub.com
+basePath: /peliculasapi
+tags:
+- name: peliculas
+  description: operaciones generales sobre las peliculas
+- name: developers
+  description: Operations available to regular developers
+schemes:
+- https
+paths:
+  /peliculas:
+    get:
+      tags:
+      - peliculas
+      summary: obtener peliculas
+      description: |
+        Obetener la totalidad de las películas guardadas en la base de datos
+      operationId: getPeliculas
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: query
+        required: false
+        type: integer
+      responses:
+        "200":
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PeliculaItem'
+        "400":
+          description: bad input parameter
+      x-swagger-router-controller: Peliculas
+    post:
+      tags:
+      - peliculas
+      summary: insertar una nueva pelicula
+      description: Adds an item to the system
+      operationId: addPelicula
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: peliculaItem
+        description: Pelicula item to add
+        required: false
+        schema:
+          $ref: '#/definitions/PeliculaItem'
+      responses:
+        "201":
+          description: item created
+        "400":
+          description: invalid input, object invalid
+        "409":
+          description: an existing item already exists
+      x-swagger-router-controller: Peliculas
+  /peliculas/{id}:
+    get:
+      tags:
+      - peliculas
+      summary: obtener peliculas por id
+      description: |
+        Obetener la totalidad de las películas guardadas en la base de datos
+      operationId: getPeliculasxId
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PeliculaItem'
+        "400":
+          description: bad input parameter
+      x-swagger-router-controller: Peliculas
+    put:
+      tags:
+      - peliculas
+      summary: modificar una película
+      description: Modificar una película
+      operationId: updatePelicula
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      - in: body
+        name: peliculaItem
+        description: Pelicula item to modify
+        required: true
+        schema:
+          $ref: '#/definitions/PeliculaModificar'
+      responses:
+        "201":
+          description: item modified
+        "400":
+          description: invalid input, object invalid
+        "404":
+          description: la película no existe
+      x-swagger-router-controller: Peliculas
+    delete:
+      tags:
+      - peliculas
+      summary: Eliminar una película por su ID
+      description: Eliminar una pelicula por su ID
+      operationId: eliminarPelicula
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: Registro borrado correctamente
+        "400":
+          description: invalid input, object invalid
+      x-swagger-router-controller: Peliculas
+  /generos:
+    get:
+      tags:
+      - generos
+      summary: Géneros de películas
+      description: Obtener los géneros de las películas
+      operationId: obtenerGeneros
+      produces:
+      - aplication/json
+      parameters: []
+      responses:
+        "200":
+          description: search results matching criteria
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/GeneroItem'
+        "400":
+          description: bad input parameter
+      x-swagger-router-controller: Peliculas
+definitions:
+  PeliculaItem:
+    type: object
+    required:
+    - director
+    - foto
+    - genero
+    - titulo
+    properties:
+      id:
+        type: number
+        example: 123.0
+      titulo:
+        type: string
+        example: Los Simuladores
+      genero:
+        type: string
+        example: Aventura
+      director:
+        type: string
+        example: Damian Szifron
+      foto:
+        type: string
+        example: img/fotos/simuladores.jpg
+    example:
+      foto: img/fotos/simuladores.jpg
+      director: Damian Szifron
+      genero: Aventura
+      titulo: Los Simuladores
+      id: 123
+  PeliculaModificar:
+    type: object
+    required:
+    - director
+    - genero
+    - titulo
+    properties:
+      titulo:
+        type: string
+        example: Los Simuladores
+      genero:
+        type: string
+        example: Aventura
+      director:
+        type: string
+        example: Damian Szifron
+    example:
+      director: Damian Szifron
+      genero: Aventura
+      titulo: Los Simuladores
+  GeneroItem:
+    type: object
+    properties:
+      id_genero:
+        type: number
+        example: 1.0
+      descripcion:
+        type: string
+        example: Drama
