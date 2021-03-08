@@ -27,6 +27,10 @@
         </operation>
     </binding>
 
-    
+    <service name="Service">
+        <port name="CursoPHPPortType" binding="CursoPHPBinding">
+            <soap:address location="http://localhost/soap/servidor.php" />
+        </port>
+    </service>
 
 </definitions>
