@@ -15,10 +15,18 @@
     </portType>
 
     <binding name="CursoPHPBinding" type="typens:CursoPHPPortType">
-        <soap:operation soapAction="urn:saludoAction" />
-        <input>
-            <soap:body namespace="urn:Service" use="encoding" encondingType="http://schemas.xmlsoap.org/soap/encoding/" />
-        </input>
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="saludo">
+            <soap:operation soapAction="urn:saludoAction" />
+            <input>
+                <soap:body namespace="urn:Service" use="encoding" encondingType="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:Service" use="encoding" encondingType="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
     </binding>
+
+    
 
 </definitions>
