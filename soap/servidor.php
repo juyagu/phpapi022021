@@ -10,7 +10,8 @@ class ApiPHP {
     }
 }
 
-$server = new SoapServer("../service.wsdl");
+
+$server = new SoapServer("../service.wsdl",array('cache_wsdl' => WSDL_CACHE_NONE));
 $server->setClass("ApiPHP");
 
 $server->handle();
