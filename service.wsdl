@@ -7,10 +7,22 @@
         <part name="saludoReturn" type="xsd:string" />
     </message>
 
+    <message name="sumar">
+        <part name="n1" type="xsd:integer" />
+        <part name="n2" type="xsd:integer" />
+    </message>
+    <message name="sumarResponse">
+        <part name="sumaResultado" type="xsd:integer" />
+    </message>
+
     <portType name="CursoPHPPortType">
         <operation name="saludo">
             <input message="typens:saludo" />
             <output message="typens:saludoResponse" />
+        </operation>
+        <operation name="sumar">
+            <input message="typens:sumar" />
+            <output message="typens:sumarResponse" />
         </operation>
     </portType>
 
@@ -18,6 +30,15 @@
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
         <operation name="saludo">
             <soap:operation soapAction="urn:saludoAction" />
+            <input>
+                <soap:body namespace="urn:Service" use="encoding" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:Service" use="encoding" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="sumar">
+            <soap:operation soapAction="urn:sumarAction" />
             <input>
                 <soap:body namespace="urn:Service" use="encoding" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
             </input>
