@@ -44,4 +44,29 @@ class PeliculaService {
     		throw $ex;
     	}
     }
+
+    public function modificarPelicula($pelicula){
+        try{
+            $id_pelicula = $pelicula['id'];
+    		$titulo = $pelicula['titulo'];
+    		$director = $pelicula['director'];
+    		$genero = $pelicula['genero'];
+    		$foto = $pelicula['foto'];
+    		$habilitado = $pelicula['habilitado'];
+
+    		//$query="insert into peliculas(titulo,director,genero,foto,habilitado) values (:titulo,:director,:genero,:foto,:habilitado)";
+            $query = "update peliculas set titulo = :titulo, director = :director, genero = :genero, foto = :foto, habilitado = :habilitado where id = :id_pelicula";
+    		$stmt = $this->conexion->prepare($query);
+    		$stmt->bindParam(':titulo',$titulo);
+    		$stmt->bindParam(':director',$director);
+    		$stmt->bindParam(':genero',$genero);
+    		$stmt->bindParam(':foto',$foto);
+    		$stmt->bindParam(':habilitado',$habilitado);
+            $stmt->bindParam(':id_pelicula',$id_pelicula);
+        	$response = $stmt->execute();
+        	return 1;
+    	}catch(Exception $ex){
+    		throw $ex;
+    	}
+    }
 }

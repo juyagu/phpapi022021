@@ -33,13 +33,23 @@ $app->GET('/peliculasapi/generos', function($request, $response, $args) {
  * Output-Formats: [application/json]
  */
 $app->POST('/peliculasapi/peliculas', function($request, $response, $args) {
-            
-            
-            
-            $body = $request->getParsedBody();
-            $response->write('How about implementing addPelicula as a POST method ?');
-            return $response;
-            });
+    try {
+        // $_PUT / $_DELETE
+        $svcPelicula = new PeliculaService();
+        $pelicula = json_decode(file_get_contents('php://input'),true);
+        $svcPelicula->guardarPelicula($pelicula);
+        $resultado = json_encode(array("mensaje" => "La pelicula fue guardada correctamente"));
+        $status = 201;
+    }catch(Exception $ex){
+        $resultado = json_encode(array("error" => "No se pudo almacenar la pelicula, intente mas tarde"));
+        $status = 500;
+    }finally{
+        $response->getBody()->write($resultado);
+        return $response
+            ->withHeader('Content-Type','application/json')
+            ->withStatus($status);
+    }
+});
 
 
 /**
@@ -89,11 +99,10 @@ $app->GET('/peliculasapi/peliculas', function($request, $response, $args) {
  */
 $app->GET('/peliculasapi/peliculas/{id}', function($request, $response, $args) {
             
-            
-            
-            
-            $response->write('How about implementing getPeliculasxId as a GET method ?');
-            return $response;
+            $id_pelicula = $args['id'];
+            var_dump($id_pelicula);
+            //$response->write('How about implementing getPeliculasxId as a GET method ?');
+            //return $response;
             });
 
 
@@ -104,13 +113,23 @@ $app->GET('/peliculasapi/peliculas/{id}', function($request, $response, $args) {
  * Output-Formats: [application/json]
  */
 $app->PUT('/peliculasapi/peliculas/{id}', function($request, $response, $args) {
-            
-            
-            
-            $body = $request->getParsedBody();
-            $response->write('How about implementing updatePelicula as a PUT method ?');
-            return $response;
-            });
+    try{
+        $svcPeliculas = new PeliculaService();
+        $pelicula = json_decode(file_get_contents('php://input'),true);
+        $pelicula['id'] = $args['id'];
+        $svcPeliculas->modificarPelicula($pelicula);
+        $resultado = json_encode(array("mensaje" => "La pelicula fue modificada correctamente"));
+        $status = 200;
+    }catch(Exception $ex){
+        $resultado = json_encode(["error" => "No se pudo realizar la consulta, intente mas tarde"]);
+        $status = 500;
+    }finally{
+        $response->getBody()->write($resultado);
+        return $response
+            ->withHeader('Content-Type','application/json')
+            ->withStatus($status);
+    }      
+});
 
 
 
