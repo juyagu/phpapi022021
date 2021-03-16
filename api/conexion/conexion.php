@@ -16,7 +16,7 @@ class Conexion {
 			//$host = "144.217.14.41";
 			//$host = '127.0.0.1';
 			$user = "root";
-			$pass = "";
+			$pass = "Hola_1234";
 			$db  = "angular5";
 			
 			$dsn = "mysql:host=". $host.";dbname=". $db.';charset=utf8';

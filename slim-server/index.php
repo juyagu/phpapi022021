@@ -5,7 +5,6 @@
  */
 
 require_once __DIR__ . '/vendor/autoload.php';
-require_once './PeliculaService.php';
 
 $app = new Slim\App();
 
@@ -65,20 +64,14 @@ $app->DELETE('/peliculasapi/peliculas/{id}', function($request, $response, $args
  * Output-Formats: [application/json]
  */
 $app->GET('/peliculasapi/peliculas', function($request, $response, $args) {
-    try{
-        $svcPeliculas = new PeliculaService();
-        $resultado = json_encode($svcPeliculas->getPeliculas());
-        $status = 200;
-    }catch(Exception $ex){
-        $resultado = json_encode(["error" => "No se pudo realizar la consulta, intente mas tarde"]);
-        $status = 500;
-    }finally{
-        $response->getBody()->write($resultado);
-        return $response
-            ->withHeader('Content-Type','application/json')
-            ->withStatus($status);
-    }        
-});
+            
+            $queryParams = $request->getQueryParams();
+            $id = $queryParams['id'];    
+            
+            
+            $response->write('How about implementing getPeliculas as a GET method ?');
+            return $response;
+            });
 
 
 /**

@@ -23,3 +23,5 @@ values
 ('El secreto de tus ojos','Jose Campanella',1,''),
 ('Avatar','David Cameron',2,''),
 ('La Llorona','Patricio Rodriguez',4,'');
+
+alter table peliculas add habilitado int default 1;
